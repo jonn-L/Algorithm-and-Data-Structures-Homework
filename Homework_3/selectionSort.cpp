@@ -5,7 +5,7 @@ using namespace std;
 using namespace chrono;
 
 /*
-    Implementation of Selection Sort
+    Implementation of Selection Sort - Jon Lumi
     deq - deque to be sorted
     swaps - variable that holds the number of swaps
 */
