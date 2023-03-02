@@ -160,7 +160,7 @@ int main () {
 
         cout << "Number of swaps: " << swaps << endl;   //print number of swaps
         //add time to deque
-        computationCaseRandom.push_back(duration.count());  
+        computationCaseA.push_back(duration.count());  
         cout << endl;
     } 
 
@@ -192,7 +192,7 @@ int main () {
 
         cout << "Number of swaps: " << swaps << endl;   //print number of swaps
         //add time to deque
-        computationCaseRandom.push_back(duration.count());  
+        computationCaseB.push_back(duration.count());  
         cout << endl;
     } 
 
