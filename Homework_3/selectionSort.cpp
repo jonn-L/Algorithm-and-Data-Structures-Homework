@@ -217,10 +217,3 @@ int main () {
 
     return 0;
 }
-
-/*
-b) 
-The Loop Invariant in Selection Sort is the same as the one we had in Insertion
-Sort: the left side of the array (the elements we've already loop through) are 
-always sorted.
-*/
