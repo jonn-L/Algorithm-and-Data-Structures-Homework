@@ -1,0 +1,68 @@
+a) Implement a variant of Merge Sort that does not divide the problem all the 
+way down to subproblems of size 1. Instead, when reaching subsequences of 
+length k it applies Insertion Sort on these n/k subsequences.
+
+a) See merge_insertion_sort.cpp
+
+===============================================================================
+
+b) Apply it to the different sequences which satisfy best case, worst case and 
+average case for different values of k. Plot the execution times for different 
+values of k
+
+b) We define best case here as a sequence of number that is already sorted, the
+worst case as a sequence that is in the opposite order of how we want it to be
+sorted (in this case decresing order), and average case is simply random 
+numbers.
+
+For the plot see computationTimes.py
+
+===============================================================================
+
+c) How do the different values of k change the best-, average-, and worst-case
+asymptotic time complexities for this variant? Explain/prove your answer.
+
+c) Looking at the plot of best case, it is clear that as k increases, the 
+computation time decreases. This is a result of how the combined sorting works:
+the larger the k is, the more the algorithm relies on Insertion to sort the 
+sequence of numbers, and naturally, the smaller it is, the more it relis on 
+Merge. This is very convenient in best case since insertion sort is faster than 
+merge sort when it comes to sorting sequences that are already sorted. That is
+also the reason why time computation is lower for higher k-values in best case.
+
+Now, when it comes to worst case, there seems to be an optimal set of k-values
+for which the sorting is most effective (k-values ~(30-50) for a fixed size of
+100 elements). These k values make the best of both worlds; they are small 
+enough such that it uses Insertion to sort shorter sequences (this is where 
+Insertion beats Merge), but also not too large such that it relies too much on
+Insertion (this where Merge beats Insertion). 
+
+For the average case, we essentially have the same story; there is a sweet spot
+for k-values for wich the algorithm is faster the reasoning for which is the 
+same as in the worst case. There is some fluctuation though due to having a 
+random sequence.
+
+===============================================================================
+
+d) Based on the results from (b) and (c), how would you choose k in practice? 
+Briefly explain.
+
+d) Assuming we know how the sequence looks before applying the algorithm, the
+best choice for k values that are around n/3 (where the best case performed the 
+best). The reasoning behind this that one should always assume the worst case 
+when it comes to time computation, and also because that is when the three 
+lines in the provided graph behave most similiarly.
+
+Choosing such k-values makes even more sense when we look at the asymptotic 
+analysis of this combined algorithm:
+    merge_insertion_sort = O(nk + nlog(n/k))
+
+Here, nk comes from insertion sort the time complexity of which is k^2. This
+is multiplied by n/k since that is how many sequences of k we have so we get:
+    (n/k)*n^2 = nk
+
+And finally, we have get nlog(n/k) which comes from the time complexity of 
+merge sort: nlog(n). The reason why n changes to n/k here is because in this
+algorithm we need to divide n by 2 until we reach k size of sequences, not 1
+like in normal merge sort.
+
