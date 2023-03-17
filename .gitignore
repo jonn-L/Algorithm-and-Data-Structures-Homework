@@ -1,6 +1,6 @@
 .vscode/
-*.exe
-*.out
-*.a
-*.txt
-*.pdf
+/*.exe
+/*.out
+/*.a
+/*.txt
+/*.pdf
