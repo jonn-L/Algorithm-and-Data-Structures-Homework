@@ -1,0 +1,113 @@
+===============================================================================
+
+a) Bubble Sort is a sorting algorithm that works by repeatedly iterating 
+through the list to be sorted, comparing each pair of adjacent items, and 
+swapping them if they are in the wrong order. This is repeated until no swaps 
+are needed, which indicates that the list is sorted. Write down the Bubble Sort 
+algorithm in pseudocode including comments to explain the steps and/or actions.
+
+a)
+
+1:  bubble_sort(A) {
+2:      for (i = 1; i < A.length; i++) {
+3:          bool swaps = false;
+4:          for (j = 0; j < A.length-i; j++) {
+5:              if (A[j] > A[j+1]) {
+6:                  swap(A[j], A[j+1]);
+7:                  swaps = true;
+8:              }
+9:          }
+10:
+11:         if (swaps == false) {
+12:             break;
+13:         }
+14:     }
+15: }
+
+line 2: iterate through every element of A starting from index 1 (2nd element).
+
+line 3: boolean that will help determine whether there were any swaps or not in
+our current "i" iteration.
+
+line 4: iterate from index 0 (1st element) all the way to A.length-i; 
+-i because the last i elements are already sorted.
+
+line 5 - 7: this is where the comparing happens; we check whether A[j] (current
+element in the j iteration) is larger than A[j+1] (next element). If so, they 
+are swapped in line 6. In line 7, the boolean swaps is set to true.
+
+line 11 - 12: check if there were any swaps; if the condition is satisfied, the
+loop is broken. This is because if there were no swaps in a iteration, it means
+that the array is sorted.
+
+===============================================================================
+
+b) Determine and prove the asymptotic worst-case, average-case, and best-case 
+time complexity of Bubble Sort.
+
+b) For bubble sort, the worst case would be when the array is reversely sorted,
+where the time complexity is equal to the number of swaps.
+For each "i" iteration, there would be n-i swaps: 
+i-value | swaps/elements iterated
+i = 0   | n-1
+i = 1   | n-2
+i = 2   | n-3
+    .   .   .
+i = n-1 | 1
+Summing the number of swaps of all the i - iterations gives the total number of
+swaps:
+(n-1) + (n-2) + (n-3) + ... + 1 = n(n-1)/2
+This means that the time complexity for the worst case is O(n^2). 
+
+The time complexity for the average case is also O(n^2).
+
+The best case for this implementation of bubble sort is an array that is 
+already sorted. The time complexity is O(n). 
+There are two reasons for this:
+(1) The algorithm stops if there are no swaps made in an "i" iteration due to 
+the usage of the swaps boolean
+(2) In the first "i" iteration, the algorithm only goes through "n-1" elements 
+- see table above
+Since the array is already sorted, the algorithm stops after the first "i" 
+iteration (reason 1), and because it only iterates "n-1" elements (reason 2), 
+the time complexity of the algorithm is O(n).
+
+===============================================================================
+
+c) Stable sorting algorithms maintain the relative order of records with equal
+keys (i.e., values). Thus, a sorting algorithm is stable if whenever there are
+two records R and S with the same key and with R appearing before S in the 
+original list, R will appear before S in the sorted list. Which of the sorting 
+algorithms Insertion Sort, Merge Sort, Heap Sort, and Bubble Sort are stable? 
+Explain your answers.
+
+c) Insertion Sort - it is stable because when comparing elements, the left 
+element is always favoured.
+
+Merge Sort - merge sort is also stable because again, the left element is 
+favoured.
+
+Heap Sort - this algorithm is unstable as a result of operations on the heap 
+changing the relative order of equal items, as the algorithm is esentially
+creating a new data structure for the data and sorting it based on that.
+
+Bubble Sort - just as in insertion and merge sort, the element comparison also
+favours the left element.
+
+===============================================================================
+
+d) A sorting algorithm is adaptive, if it takes advantage of existing order in 
+its input. Thus, it benefits from the pre-sortedness in the input sequence and 
+sorts faster. Which of the sorting algorithms Insertion Sort, Merge Sort, Heap
+Sort, and Bubble Sort are adaptive? Explain your answers.
+
+d) Of the afermentioned sorting algorithms, the adaptive ones are Insertion 
+Sort and Bubble Sort. This is because depending on the inputed array, the time
+complexity changes; it becomes linear (O(n)) as they both linearly go through 
+the sequence of numbers and make comparisons in order to sort them. 
+
+As for Merge Sort and Heap Sort, they are both non-adaptive. The time 
+complexity for both algorithm is always the same (O(nlogn)), no matter the 
+inputed array. 
+
+===============================================================================
