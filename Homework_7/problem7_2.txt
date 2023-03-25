@@ -1,0 +1,29 @@
+===============================================================================
+
+a) Implement a modified version of the Quicksort algorithm, where the sequence
+of elements is always split into three subsequences by simultaneously using the 
+first two elements as pivots.
+
+a) see quicksort_modified.cpp
+
+=============================================================================== 
+
+b) Determine and prove the best-case and worst-case running time for the 
+modified Quicksort from subpoint (a).
+
+b) The best case for this modfied version would be one where the array is split
+in three equal parts which means that the recurrence formula is:
+    T(n) = 3T(n/3) + O(n)
+The worst case would be when the pivots are the smallest and largest element, 
+which means that the recurrence formula for this case is:
+    T(n) = T(n-2) + 0(n)
+
+see time_complexity_proofs.pdf for the time complexity calculations
+
+=============================================================================== 
+
+d) Implement a modified version of the Randomized Quicksort algorithm, where 
+the sequence of elements is always split into three subsequences by 
+simultaneously using two random elements as pivots.
+
+d) see quicksort_random.cpp

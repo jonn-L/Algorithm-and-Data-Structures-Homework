@@ -1,0 +1,34 @@
+===============================================================================
+
+Implement 3 versions of the Quicksort algorithm with 3 different versions of 
+the partition algorithm:
+a) Lomoto partition as on the lecture slides (Lecture 16).
+b) Hoare partition (use Wikipedia or other sources).
+c) ”Median-of-three” partition (use Wikipedia or other sources).
+
+a/b/c) see respective .cpp file for each Implementation
+
+===============================================================================
+
+d) Measure the running times of the 3 Quicksort versions from above for the 
+same 100000 randomly generated sequences of fixed length 1000, compute the 
+average running times for each of the 3 versions and compare them. Explain the
+behaviour of the 3 versions and your observations
+
+d) Median Version: while this version does theortically choose the most
+appropriate pivot such that the algorithm is more efficent (i.e avoids the case
+where the pivot is the smallest or largest element), it seems to fall 
+flat due to how much time it takes to select that pivot, which is why it 
+performs the worst out of the three.
+
+Lomoto Version: while it doesn't put much effort into avoding the selection of
+a bad pivot, it is still pretty efficent, even outperforming the Median 
+Version. This is because unlike the Median Version, it doesn't spend any time 
+trying to calculate which element would make the best pivot
+
+Hoare Version: this version of Quicksort seems to perform the best out of 
+three. The result makes sense since considering that the method this Version 
+uses to pick a pivot is both quick (doesn't need much to compute it) and good
+at avoiding bad pivots. 
+
+===============================================================================
