@@ -40,7 +40,8 @@ int main() {
     //loop for 10,000 test cases
     for (int i = 0; i < 10000; i++) {
         vector<int> vec(1000);
-        generate(vec.begin(), vec.end(), rand); //generate a vector with radom vectors
+        //generate vector with random elems
+        generate(vec.begin(), vec.end(), rand); 
 
         //calculate the time taken to sort
         auto start = high_resolution_clock::now(); 
