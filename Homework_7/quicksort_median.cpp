@@ -55,7 +55,7 @@ int main() {
     vector<int> computation_times;
 
     //loop for 10,000 test cases
-    for (int i = 0; i < 10000; i++) {
+    for (int i = 0; i < 100000; i++) {
         vector<int> vec(1000);
         generate(vec.begin(), vec.end(), rand); //generate a vector with radom vectors
 
@@ -75,7 +75,7 @@ int main() {
     }
 
     cout << "Average time for Median-of-Three Pivot in microseconds: " 
-         <<  total_sum/10000.0 << endl;
+         <<  total_sum/100000.0 << endl;
 
     return 0;
 }
