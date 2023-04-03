@@ -1,0 +1,32 @@
+===============================================================================
+
+a) Implement Hollerith’s original version of the Radix Sort.
+
+a) see radix_sort.cpp
+
+===============================================================================
+
+b) Determine and prove the asymptotic time complexity and the asymptotic 
+storage space required for your implementation.
+
+b) 
+
+d -- number of digits
+b -- array that counts the digits in counting_sort
+
+Time complexity:
+Best Case:  T(n) = T((d-1)*n) + d*n                      //where d = 1
+                 => O(n)
+
+Worst Case: T(n) = d*n                                   //where d > 1
+                 => O(n*d)
+
+
+Space complexity:
+Best Case:  S(n) = S((d-1)*(n + b)) + d*(n + b)          //where d = 1
+                 => O(n + b)
+
+Worst Case: S(n) = n + d*b                               //where d > 1
+                 => O(n + d*b)
+
+===============================================================================

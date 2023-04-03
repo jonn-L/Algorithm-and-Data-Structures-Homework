@@ -1,0 +1,106 @@
+===============================================================================
+
+a) Implement the algorithm for Counting Sort and then use it to sort the 
+sequence:
+< 9, 1, 6, 7, 6, 2, 1 >.
+
+a) see counting_sort.cpp
+
+===============================================================================
+
+b) Implement the algorithm for Bucket Sort and then use it to sort the 
+sequence:
+< 0.9, 0.1, 0.6, 0.7, 0.6, 0.3, 0.1 >.
+
+b) see bucket_sort.cpp
+
+===============================================================================
+
+c) Given n integers in the range 0 to k, design and write down an algorithm 
+(only pseudocode) with pre-processing time Θ(n+k) for building auxiliary 
+storage, which counts in O(1) how many of the integers fall into the interval 
+[a, b].
+
+c) 
+
+count_interval(arr, n, k, a, b) {
+
+    //pre-processing start
+    int counter[k+1];
+
+    for (int i to k+1):
+        counter[i] = 0;
+
+    for (int i to n):
+        counter[arr[i]] = counter[arr[i]] + 1
+
+    for (int i to k+1):
+        counter[i] = counter[i] + counter[i-1]
+    //pre-processing end
+
+
+    if (a == 0):
+        return counter[b]
+    else:
+        return counter[b] - counter[a-1]
+}
+
+===============================================================================
+
+d) Given a sequence of n English words of length k, implement an algorithm that
+sorts them alphabetically in Θ(n). Let k and n be flexible, i.e., automatically
+determined when reading the input sequence. You can consider k to behave like a
+constant in comparison with n. Example sequence of words to sort:
+
+< ”word”, ”category”, ”cat”, ”new”, ”news”, ”world”, ”bear”, ”at”, ”work”, 
+”time” >.
+
+d) 
+
+alphabetic_sort(arr, p, q, k, l=0) {
+    if (l > k):
+        return;
+    
+    insertion_sort(arr, p, q, l);
+
+    int group_indecies[q-p]
+
+    int i = 0
+    for (int j = p+1 to q):
+        if words[j][l] != words[j-1][l]:
+            group_indecies[i] = j
+            i++
+    group_indecies[i+1] = q
+    
+    int begin = p
+    for (int k = 0 to q-p):
+        alphabetic_sort(arr, begin, group_indecies[k], k, l+1)
+        begin = group_indecies[k]
+}
+
+===============================================================================
+
+e) Given any input sequence of length n, determine the worst-case time 
+complexity for Bucket Sort. Give an example of a worst-case scenario and the 
+prove corresponding the complexity.
+
+The input sequence that would give the worst time complexity for Bucket Sort 
+is one where all the numbers go into one bucket and they are reversely sorted.
+This would make the time complexity become O(n^2) due to two reasons:
+(1) Bucket Sort efficeny relies on the the input sequence being as distributed
+as possible. As a result, having a sequence that is not distributed would mean 
+that all the numbers end up in one bucket. 
+(2) Since all the whole input sequence ends up in one bucket, this would 
+essentially mean that the algorithm becomes Insertion Sort, as that it the 
+algorithm Bucket Sort relies on to sort each bucket. And since the worst case
+(are reversly sorted input sequence) for Insertion Sort is O(n^2), the time 
+complexity for the Bucket Sort algorithm becomes 0(n^2).  
+
+Example Input: < 0.19, 0.18, 0.17, 0.16, 0.15, 0.14, 0.13, 0.12, 0.11, 0.1 >
+
+The time complexity however could be better if some other more efficent 
+algorithm was used to sort each bucket instead of Insertion Sort. In this case,
+the time complexity for the worst case would be that of the substitute 
+algorithm. 
+
+===============================================================================
