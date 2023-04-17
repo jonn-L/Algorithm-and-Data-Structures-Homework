@@ -1,0 +1,76 @@
+===============================================================================
+
+a1) Implement using C++, Python or Java the data structure of a stack backed up 
+by a linked list, that can store data of any type, and analyze the running time
+of each specific operation. Implement the stack such that you have the 
+possibility of setting a fixed size but not necessarily have to (size should be 
+−1 if unset). Your functions should print suggestive messages in cases of 
+underflow or overflow. You can assume that if the size is passed, it will have 
+a valid value.
+
+a1) see stack.cpp
+
+===============================================================================
+
+b1) Implement a queue which uses two stacks to simulate the queue behavior.
+
+b1) see queue.cpp
+
+===============================================================================
+
+a2) Write down the pseudocode for an in-situ algorithm that reverses a linked 
+list of n elements in Θ(n). Explain why it is an in-situ algorithm
+
+reverse():
+    if ((head == NULL) || (head.next == NULL)):
+        return
+    
+    //the pointers here are the consntant additional memory
+    prev_node = NULL
+    curr_node = this->head
+    next_node = this->head->next
+    
+    while (next_node != NULL):
+        curr_node->next = prev_node
+        
+        prev_node = curr_node
+        curr_node = next_node
+
+        next_node = next_node->next
+    
+    curr_node.next = prev_node
+    this->head = curr_node
+
+The above algorithm is in-situ because it only requires a consntant amount of
+additional memory to reverse the linked list. This means that the function will
+allocate the same amount of extra memory regardless of the size of the linked 
+list. 
+
+The time complexity is O(n) seeing as there is one loop that stops whenever the 
+end of the linked list is reached.
+
+===============================================================================
+
+b2) Implement an algorithm to convert a binary search tree to a sorted linked 
+list and derive its asymptotic time complexity.
+
+b2) see bst2l.cpp
+Time complexity: O(n). This is because every node in the BST has to be visited
+in order to convert it to a linked list.
+
+===============================================================================
+
+c2) Implement an algorithm to convert a sorted linked list to a binary search 
+tree and derive its asymptotic time complexity. The search time complexity of 
+the resulting binary search tree should be lower than the one for the 
+equivalent sorted linked list.
+
+c2) The time complexity of this function is going to be O(n*logn). This is
+because the function is first finding the middle of the linked list, then 
+dividing it by making the middle element a treeNode root, and then recursively 
+doing the same for the two halves (the left and right of the root).
+
+The recursion formula would be: T(n) = 2T(n/2) + n where by using the master
+theorem we derive the time complexity of O(n*logn)
+
+===============================================================================
