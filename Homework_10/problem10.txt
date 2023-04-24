@@ -1,0 +1,26 @@
+===============================================================================
+
+a1) Draw (or describe by using preorder traversal) the red-black trees that 
+result after successively inserting the values step by step in the following 
+order [13, 44, 37, 7, 22, 16] into an empty red-black tree. You are required to 
+draw (or describe by using preorder traversal) the tree after each insertion, 
+as well as any additional recoloring and balancing.
+
+a1) see p10_a.pdf
+
+===============================================================================
+
+b1) Draw (or describe by using preorder traversal) all valid red-black trees 
+that store the values {1, 2, 3, 4}.
+
+b1) see p10_b.pdf
+
+===============================================================================
+
+a2) Implement a red black tree (with integer nodes), closely following the 
+specifications and algorithms from the lectures. Make sure you handle errors 
+appropriately by printing messages or throwing exceptions. 
+
+a2) see RedBlackTree.h, RedBlackTree.cpp
+
+===============================================================================
