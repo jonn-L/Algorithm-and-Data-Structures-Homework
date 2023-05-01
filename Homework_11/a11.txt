@@ -1,0 +1,102 @@
+===============================================================================
+
+a1) Given the sequence < 3, 10, 2, 4 >, apply the double-hashing strategy for 
+open addressing to store the sequence in the given order in a hash table of 
+size m = 5 with hash functions h1(k) = k mod 5 and h2(k) = 7k mod 8. Document 
+all collisions and how they are resolved. Write down your computations.
+
+a1) 
+Inserting 3:
+h1(3): 3 mod 5 = 3
+
+Hash-Table:
+0
+1
+2
+3 - 3
+4
+
+
+Inserting 10:
+h1(10): 10 mod 5 = 0
+
+Hash-Table:
+0 - 10
+1
+2
+3 - 3
+4
+
+
+Inserting 2:
+h1(2): 2 mod 5 = 2
+
+Hash-Table:
+0 - 10
+1
+2 - 2
+3 - 3
+4
+
+
+Inserting 4:
+h1(4): 4 mod 5 = 4
+
+Hash-Table:
+0 - 10
+1
+2 - 2
+3 - 3
+4 - 4
+
+===============================================================================
+
+b1) Implement a hash table that supports insertion and querying with open 
+addressing using linear probing. Select an h′ function and explain why your 
+selected h′ is wellsuited for your test data. 
+
+b1) see HashTable.hpp, HashTable.cpp for implementation
+
+The h' function that I choose is wellsuited due to a few reasons:
+
+1. It is simple to implement and very easy to undersand, making it less prone 
+to errors.
+2. It is offers unifrom distribution since the size of the hash table is always
+a power of 2 in this implementation of the hash table.
+3. It is fast since it's just a simple modulo operation.
+
+===============================================================================
+
+a2) Show that a greedy algorithm for the activity-selection problem that makes 
+the greedy choice of selecting the activity with shortest duration may fail at 
+producing a globally optimal solution.
+
+a2) If the activities are not sorted by ascending order based on the start-time 
+(i.e from the one that starts the earilest all the way to the one that ends 
+last), then the greedy algorithm would fail at getting a globally 
+optimal solution since it assumes that activities are sorted based in that 
+manner.
+
+Another scenario of when the greedy algorithm will fail is when the globally
+optimal solution is not based on one criterion but multiple. Such a case where
+there are multiple criteria is the Knapsack Problem.
+
+===============================================================================
+
+b2) Assuming an unsorted sequence of activities, derive a greedy algorithm for 
+the activity-selection problem that selects the activity with the latest 
+starting time. Your solution should not simply sort the activities and then 
+select the activity.
+
+b2)
+
+latest_greedy(activities):
+    latest_activity = activities[0]
+
+    for i=2 to activities.size:
+        if activities[i].start > latest_activity.start:
+            latest_activity = activities[i]
+
+    return latest_activity
+
+===============================================================================
