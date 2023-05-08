@@ -1,0 +1,46 @@
+===============================================================================
+
+1a) Consider the array A = (a1, a2, ..., an). We call a subarray a succession 
+of numbers in A where the position of any value in the subarray in the array is
+always bigger than the value of the previous one. Use dynamic programming to 
+find a subarray of maximal ordered length of the array A. Your algorithm should
+find one optimal solution if multiple exist.
+
+1a) see lis.cpp
+Note: first you have to input the size of the array, then the elements
+
+===============================================================================
+
+2a) Consider a triangle formed from n lines (1 < n ≤ 100), each line containing
+natural numbers in the interval [0, 10000].
+
+(a) Use dynamic programming to determine the biggest sum of numbers existent on
+the path from the number in the first line and a number from the last line and 
+print the respective path to the output. Each number in this path is seated to
+the left or to the right of the other value above it.
+(a) see lst.cpp
+Note: first enter the number of lines before the triangle
+
+(b) Analyze the runtime of your solution and compare it to the brute force 
+approach.
+(b) The runtime for the brute force method would be 2^n since the algorithm 
+would have to try all the possible combinations before finding the largest one,
+while the implementation in lst.cpp only has a time complexity of n^2, since
+it starts all the way from bottom and adds up the values with the largest sum
+being at the top of the triangle.
+Note: n here refers to the number of lines the triangle has
+
+(c) Explain why a greedy algorithm does not work for this problem.
+(c) A greedy algorithm would not work here since the solution of a subproblem 
+doesn't necessarily lead the global solution. For example:
+    7
+   3 8
+  8 1 0
+ 2 7 4 4
+4 5 2 6 5
+Using a greedy algorithm here would lead us to the sequence: 7 8 1 7 5.
+7 -> 8 because 8 > 3, 8 -> 1 because  1> 0, and so on.
+This is obviously not the correct solution as the correct solution is actually
+the sequence: 7 3 8 7 5
+
+===============================================================================
